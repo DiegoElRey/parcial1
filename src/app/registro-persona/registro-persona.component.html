@@ -17,6 +17,7 @@
     </div>
     <div class="form-group">
         <label for="sexo">Sexo</label>
+        <br>
         <select name="Sexo" id="sexo" [(ngModel)]="persona.sexo">
             <option value="">Masculino</option>
             <option value="">Femenino</option>
@@ -35,6 +36,22 @@
         <label for="ciudad">Ciudad</label>
         <input type="text" class="form-control" id="ciudad" [(ngModel)]="persona.ciudad">
     </div>
-
+    <div class="form-group">
+        <label for="sexo">Modalidad del apoyo</label>
+        <br>
+        <select name="Sexo" id="sexo" [(ngModel)]="persona.ModalidadApoyo">
+            <option value="">Alimentario</option>
+            <option value="">Economico</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="ciudad">Valor del apoyo</label>
+        <input type="number" class="form-control" id="ciudad" [(ngModel)]="persona.ValorApoyoRecivido">
+    </div>
+    <div class="form-group">
+        <label for="ciudad">Fecha solicitud</label>
+        <input type="datetime" class="form-control" id="datetime" [(ngModel)]="persona.ValorApoyoRecivido">
+    </div>
+    
     <button type="submit" class="btn btn-primary">Submit</button>
 </div>

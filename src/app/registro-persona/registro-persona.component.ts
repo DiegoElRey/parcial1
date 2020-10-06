@@ -12,5 +12,5 @@ export class RegistroPersonaComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
 }

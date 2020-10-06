@@ -7,4 +7,5 @@ export class Persona {
     departamento: string;
     ciudad: string;
     ValorApoyoRecivido: number;
+    ModalidadApoyo: string;
 }
