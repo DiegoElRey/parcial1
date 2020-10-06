@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "parcial1"
+    }
+  },
+  "defaultProject": "parcial1",
+  "cli": {
+    "analytics": "0225d232-f028-4e13-993a-ec051bcd5788"
+  }
 }
