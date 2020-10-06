@@ -27,11 +27,18 @@ export class RegistroPersonaComponent implements OnInit {
   validarCedula(identificacion: any): boolean {
     const datos = this.personaService.get();
 
-    const cedulaEncontrada = datos.filter(it => it.identificacion == identificacion);
+    // if (datos && datos.length > 0) {
 
-    if (cedulaEncontrada.length == 0) {
-      return true;
-    }
+      if (!datos) {
+        return true;
+      }
+      const cedulaEncontrada = datos.filter(it => it.identificacion == identificacion);
+  
+      if (cedulaEncontrada.length == 0) {
+        return true;
+      }
+
+    // }
     return false;
   }
 }

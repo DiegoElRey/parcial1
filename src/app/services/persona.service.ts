@@ -21,7 +21,8 @@ export class PersonaService {
   suma(): number{
     this.get();
     var lista = this.get();
-    for (let index = 0; index < this.get().length; index++) {
+    for (let index = 0; index < lista.length; index++) {
+      console.log(lista[index].ValorApoyoRecivido);
       this.total = this.total + lista[index].ValorApoyoRecivido; 
     }
     return this.total;
