@@ -1,57 +1,69 @@
 <br>
 <br>
-<div class="registro">
-    <h1>Registro</h1>
-    <br>
-    <div class="form-group">
-        <label for="id">Identificación</label>
-        <input type="text" class="form-control" [(ngModel)]="persona.identificacion" id="identificacion">
-    </div>
-    <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text" class="form-control" [(ngModel)]="persona.nombre" id="nombre">
-    </div>
-    <div class="form-group">
-        <label for="apellido">Apellido</label>
-        <input type="text" class="form-control" id="apellido" [(ngModel)]="persona.apellido">
-    </div>
-    <div class="form-group">
-        <label for="sexo">Sexo</label>
+
+<form  (ngSubmit)="onSubmit(userForm)" #userForm="ngForm" novalidate="">
+    <div class="registro">
+        <h1>Registro</h1>
         <br>
-        <select name="Sexo" id="sexo" [(ngModel)]="persona.sexo">
-            <option value="">Masculino</option>
-            <option value="">Femenino</option>
-        </select>
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="edad">Edad</label>
-        <input type="number" class="form-control" id="edad" [(ngModel)]="persona.edad">
-    </div>
-    <div class="form-group">
-        <label for="departamento">Departamento</label>
-        <input type="text" class="form-control" id="departamento" [(ngModel)]="persona.departamento">
-    </div>
-    <div class="form-group">
-        <label for="ciudad">Ciudad</label>
-        <input type="text" class="form-control" id="ciudad" [(ngModel)]="persona.ciudad">
-    </div>
-    <div class="form-group">
-        <label for="sexo">Modalidad del apoyo</label>
+        <div class="form-group">
+            <label for="id">Identificación</label>
+            <input type="text" class="form-control" [(ngModel)]="persona.identificacion" id="identificacion"  #identificacion="ngModel">
+        
+            <div [hidden]="identificacion.valid || identificacion.pristine" class="alert alert-danger">
+                <div *ngIf="identificacion.errors?.required">
+                Este campo es requerido.
+                </div>
+                <div *ngIf="identificacion.errors?.minlength">
+                Por lo menos  caracteres.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" [(ngModel)]="persona.nombre" id="nombre">
+        </div>
+        <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input type="text" class="form-control" id="apellido" [(ngModel)]="persona.apellido">
+        </div>
+        <div class="form-group">
+            <label for="sexo">Sexo</label>
+            <br>
+            <select name="Sexo" id="sexo" [(ngModel)]="persona.sexo">
+                <option value="">Masculino</option>
+                <option value="">Femenino</option>
+            </select>
+        </div>
         <br>
-        <select name="Sexo" id="sexo" [(ngModel)]="persona.ModalidadApoyo">
-            <option value="">Alimentario</option>
-            <option value="">Economico</option>
-        </select>
+        <div class="form-group">
+            <label for="edad">Edad</label>
+            <input type="number" class="form-control" id="edad" [(ngModel)]="persona.edad">
+        </div>
+        <div class="form-group">
+            <label for="departamento">Departamento</label>
+            <input type="text" class="form-control" id="departamento" [(ngModel)]="persona.departamento">
+        </div>
+        <div class="form-group">
+            <label for="ciudad">Ciudad</label>
+            <input type="text" class="form-control" id="ciudad" [(ngModel)]="persona.ciudad">
+        </div>
+        <div class="form-group">
+            <label for="sexo">Modalidad del apoyo</label>
+            <br>
+            <select name="Sexo" id="sexo" [(ngModel)]="persona.ModalidadApoyo">
+                <option value="">Alimentario</option>
+                <option value="">Economico</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="ciudad">Valor del apoyo</label>
+            <input type="number" class="form-control" id="ciudad" [(ngModel)]="persona.ValorApoyoRecivido">
+        </div>
+        <div class="form-group">
+            <label for="ciudad">Fecha solicitud</label>
+            <input type="datetime" class="form-control" id="datetime" [(ngModel)]="persona.ValorApoyoRecivido">
+        </div>
+        {{persona.valid}}    
+        <button type="submit" [disabled]="!persona.valid" class="btn btn-primary" (click)="agregar()">Submit</button>
     </div>
-    <div class="form-group">
-        <label for="ciudad">Valor del apoyo</label>
-        <input type="number" class="form-control" id="ciudad" [(ngModel)]="persona.ValorApoyoRecivido">
-    </div>
-    <div class="form-group">
-        <label for="ciudad">Fecha solicitud</label>
-        <input type="datetime" class="form-control" id="datetime" [(ngModel)]="persona.ValorApoyoRecivido">
-    </div>
-    
-    <button type="submit" class="btn btn-primary">Submit</button>
-</div>
+</form>

@@ -11,6 +11,10 @@ export class RegistroPersonaComponent implements OnInit {
   constructor(private personaService: PersonaService) { }
 
   ngOnInit(): void {
+    this.persona = new Persona;
   }
-  
+  agregar() {
+    alert('Se agrego una nueva persona' + JSON.stringify(this.persona));
+    this.personaService.post(this.persona);
+  }
 }
