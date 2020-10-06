@@ -8,4 +8,5 @@ export class Persona {
     ciudad: string;
     ValorApoyoRecivido: number;
     ModalidadApoyo: string;
+    fecha: Date;
 }

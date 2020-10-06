@@ -10,7 +10,7 @@
                   [(ngModel)]="persona.identificacion" #identificacion="ngModel"
                   [ngClass]="{ 'is-invalid': f.submitted && identificacion.invalid }" required />
             <div *ngIf="f.submitted && identificacion.invalid" class="invalid-feedback">
-                <div *ngIf="identificacion.errors.required">La identificación es requerido</div>
+                <div *ngIf="identificacion.errors.required">La identificación es requerida</div>
             </div>
         </div>
         
@@ -43,37 +43,67 @@
                 <option value="femenino">Femenino</option>
             </select>
             <div *ngIf="f.submitted && sexo.invalid" class="invalid-feedback">
-                <div *ngIf="sexo.errors.required">El sexo es requerido</div>
+                <div *ngIf="sexo.errors.required">El sexo es requerida</div>
             </div>
         </div>
         <br>
         <div class="form-group">
-            <label for="edad">Edad</label>
-            <input type="number" class="form-control" id="edad" [(ngModel)]="persona.edad">
+            <label for="id">Edad</label>
+            <input type="text" class="form-control" name="edad"
+                  [(ngModel)]="persona.edad" #edad="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && edad.invalid }" required />
+            <div *ngIf="f.submitted && edad.invalid" class="invalid-feedback">
+                <div *ngIf="edad.errors.required">El edad es requerida</div>
+            </div>
         </div>
         <div class="form-group">
-            <label for="departamento">Departamento</label>
-            <input type="text" class="form-control" id="departamento" [(ngModel)]="persona.departamento">
+            <label for="id">Departamento</label>
+            <input type="text" class="form-control" name="departamento"
+                  [(ngModel)]="persona.departamento" #departamento="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && departamento.invalid }" required />
+            <div *ngIf="f.submitted && departamento.invalid" class="invalid-feedback">
+                <div *ngIf="departamento.errors.required">El departamento es requerido</div>
+            </div>
         </div>
         <div class="form-group">
-            <label for="ciudad">Ciudad</label>
-            <input type="text" class="form-control" id="ciudad" [(ngModel)]="persona.ciudad">
+            <label for="id">Ciudad</label>
+            <input type="text" class="form-control" name="ciudad"
+                  [(ngModel)]="persona.ciudad" #ciudad="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && ciudad.invalid }" required />
+            <div *ngIf="f.submitted && ciudad.invalid" class="invalid-feedback">
+                <div *ngIf="ciudad.errors.required">El ciudad es requerida</div>
+            </div>
         </div>
         <div class="form-group">
-            <label for="sexo">Modalidad del apoyo</label>
+            <label for="modalidad">Modalidad</label>
             <br>
-            <select name="Sexo" id="sexo" [(ngModel)]="persona.ModalidadApoyo">
-                <option value="">Alimentario</option>
-                <option value="">Economico</option>
+            <select class="form-control" name="modalidad"
+            [(ngModel)]="persona.ModalidadApoyo" #modalidad="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && modalidad.invalid }" required >
+                <option value="Alimentario">Alimentario</option>
+                <option value="Economico">Economico</option>
             </select>
+            <div *ngIf="f.submitted && modalidad.invalid" class="invalid-feedback">
+                <div *ngIf="modalidad.errors.required">El modalidad es requerida</div>
+            </div>
         </div>
         <div class="form-group">
-            <label for="ciudad">Valor del apoyo</label>
-            <input type="number" class="form-control" id="ciudad" [(ngModel)]="persona.ValorApoyoRecivido">
+            <label for="id">Ciudad</label>
+            <input type="number" class="form-control" name="ValorApoyoRecivido"
+                  [(ngModel)]="persona.ValorApoyoRecivido" #ValorApoyoRecivido="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && ValorApoyoRecivido.invalid }" required />
+            <div *ngIf="f.submitted && ValorApoyoRecivido.invalid" class="invalid-feedback">
+                <div *ngIf="ValorApoyoRecivido.errors.required">El ValorApoyoRecivido es requerida</div>
+            </div>
         </div>
         <div class="form-group">
-            <label for="ciudad">Fecha solicitud</label>
-            <input type="datetime" class="form-control" id="datetime" [(ngModel)]="persona.ValorApoyoRecivido">
+            <label for="id">Ciudad</label>
+            <input type="datetime" class="form-control" name="fecha"
+                  [(ngModel)]="persona.fecha" #fecha="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && fecha.invalid }" required />
+            <div *ngIf="f.submitted && fecha.invalid" class="invalid-feedback">
+                <div *ngIf="fecha.errors.required">El fecha es requerida</div>
+            </div>
         </div>
         {{f.form.valid}}    
         <button type="submit" [disabled]="!f.form.valid" class="btn btn-primary" >Submit</button>

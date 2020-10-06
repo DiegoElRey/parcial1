@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { RegistroPersonaComponent } from './registro-persona/registro-persona.component';
 import { PersonaService } from './services/persona.service';
+import { ConsultarPersonaComponent } from './consultar-persona/consultar-persona.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    RegistroPersonaComponent
+    RegistroPersonaComponent,
+    ConsultarPersonaComponent
   ],
   imports: [
     BrowserModule,
