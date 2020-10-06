@@ -5,7 +5,7 @@ import { Persona } from '../modelos/persona';
   providedIn: 'root'
 })
 export class PersonaService {
-
+  total: number;
   constructor() { }
   get(): Persona[] {
     return JSON.parse(localStorage.getItem('datos'));
@@ -17,5 +17,13 @@ export class PersonaService {
     }
     personas.push(persona);
     localStorage.setItem('datos', JSON.stringify(personas));
+  }
+  suma(): number{
+    this.get();
+    var lista = this.get();
+    for (let index = 0; index < this.get().length; index++) {
+      this.total = this.total + lista[index].ValorApoyoRecivido; 
+    }
+    return this.total;
   }
 }

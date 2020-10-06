@@ -12,9 +12,12 @@ export class ConsultarPersonaComponent implements OnInit {
   total: number;
   ngOnInit(): void {
     this.get();
+    this.suma();
   }
   get(){
     this.personas = this.personaService.get();
-    console.log(this.personas);
+  }
+  suma(){
+    this.total = this.personaService.suma();
   }
 }
