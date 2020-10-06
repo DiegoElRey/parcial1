@@ -14,7 +14,24 @@ export class RegistroPersonaComponent implements OnInit {
     this.persona = new Persona;
   }
   agregar() {
-    alert('Se agrego una nueva persona' + JSON.stringify(this.persona));
-    this.personaService.post(this.persona);
+    // alert('Se agrego una nueva persona' + JSON.stringify(this.persona));
+    const noExisteCedula = this.validarCedula(this.persona.identificacion);
+    if (noExisteCedula) {
+      this.personaService.post(this.persona);
+      alert("Se agrego la persona");
+    } else {
+      alert("La indentificación ya existe");
+    }
+  }
+
+  validarCedula(identificacion: any): boolean {
+    const datos = this.personaService.get();
+
+    const cedulaEncontrada = datos.filter(it => it.identificacion == identificacion);
+
+    if (cedulaEncontrada.length == 0) {
+      return true;
+    }
+    return false;
   }
 }
